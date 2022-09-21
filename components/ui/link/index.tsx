@@ -6,6 +6,7 @@ type LinkProps = {
   href: string
   children: ReactElement
   activeClass: string
+
 }
 
 const ActiveLink: FunctionComponent<LinkProps> = ({children, ...props}) => {
