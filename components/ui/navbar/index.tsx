@@ -1,6 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 
 import { Disclosure, Menu } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import { useAccount } from "@hooks/web3";
 import Link from "next/link";
 import ActiveLink from "../link";
 
@@ -12,7 +14,12 @@ const navigation = [
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
+
 export default function Navbar() {
+  const { account } = useAccount();
+
+  console.log(account.data);
+
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -41,7 +48,10 @@ export default function Navbar() {
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <ActiveLink key={item.name} href={item.href} activeClass="bg-gray-900 text-white">
+                      <ActiveLink
+                        key={item.name}
+                        href={item.href}
+                        activeClass="bg-gray-900 text-white">
                         <a
                           className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                           aria-current={item.current ? "page" : undefined}>
@@ -61,7 +71,6 @@ export default function Navbar() {
                 </button>
 
                 {/* Profile dropdown */}
-
                 <Menu as="div" className="ml-3 relative z-10">
                   <div>
                     <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
@@ -73,7 +82,6 @@ export default function Navbar() {
                       />
                     </Menu.Button>
                   </div>
-
                   <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                     <Menu.Item>
                       {({ active }) => (
@@ -93,6 +101,7 @@ export default function Navbar() {
               </div>
             </div>
           </div>
+
           <Disclosure.Panel className="sm:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navigation.map((item) => (
