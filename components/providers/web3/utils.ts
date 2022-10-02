@@ -1,9 +1,7 @@
 import { setupHooks, Web3Hooks } from "@hooks/web3/setupHooks";
 import { MetaMaskInpageProvider } from "@metamask/providers";
 import { Web3Dependencies } from "@_types/hooks";
-import { ChildProcessWithoutNullStreams } from "child_process";
 import { Contract, ethers, providers } from "ethers";
-import React from "react";
 
 declare global {
   interface Window {
@@ -15,14 +13,9 @@ type Nullable<T> = {
   [P in keyof T]: T[P] | null;
 };
 
-export type Web3Pep = {
-  children: React.ReactNode
-}
-
 export type Web3State = {
   isLoading: boolean; // true while loading web3State
   hooks: Web3Hooks;
-  
 } & Nullable<Web3Dependencies>;
 
 export const createDefaultState = () => {

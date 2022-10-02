@@ -4,8 +4,8 @@ import {
   BytesLike as Arrayish,
   BigNumber,
   BigNumberish,
-} from 'ethers';
-import { EthersContractContextV5 } from 'ethereum-abi-types-generator';
+} from "ethers";
+import { EthersContractContextV5 } from "ethereum-abi-types-generator";
 
 export type ContractContext = EthersContractContextV5<
   NftMarketContract,
@@ -55,11 +55,11 @@ export interface ContractCallOverrides {
   gasLimit?: number;
 }
 export type NftMarketContractEvents =
-  | 'Approval'
-  | 'ApprovalForAll'
-  | 'NftItemCreated'
-  | 'OwnershipTransferred'
-  | 'Transfer';
+  | "Approval"
+  | "ApprovalForAll"
+  | "NftItemCreated"
+  | "OwnershipTransferred"
+  | "Transfer";
 export interface NftMarketContractEventsContext {
   Approval(...parameters: any): EventFilter;
   ApprovalForAll(...parameters: any): EventFilter;
@@ -68,36 +68,36 @@ export interface NftMarketContractEventsContext {
   Transfer(...parameters: any): EventFilter;
 }
 export type NftMarketContractMethodNames =
-  | 'new'
-  | 'approve'
-  | 'balanceOf'
-  | 'getApproved'
-  | 'isApprovedForAll'
-  | 'listingPrice'
-  | 'name'
-  | 'owner'
-  | 'ownerOf'
-  | 'renounceOwnership'
-  | 'safeTransferFrom'
-  | 'safeTransferFrom'
-  | 'setApprovalForAll'
-  | 'supportsInterface'
-  | 'symbol'
-  | 'tokenURI'
-  | 'transferFrom'
-  | 'transferOwnership'
-  | 'setListingPrice'
-  | 'getNftItem'
-  | 'listedItemsCount'
-  | 'tokenURIExists'
-  | 'totalSupply'
-  | 'tokenByIndex'
-  | 'tokenOfOwnerByIndex'
-  | 'getAllNftsOnSale'
-  | 'getOwnedNfts'
-  | 'mintToken'
-  | 'buyNft'
-  | 'placeNftOnSale';
+  | "new"
+  | "approve"
+  | "balanceOf"
+  | "getApproved"
+  | "isApprovedForAll"
+  | "listingPrice"
+  | "name"
+  | "owner"
+  | "ownerOf"
+  | "renounceOwnership"
+  | "safeTransferFrom"
+  | "safeTransferFrom"
+  | "setApprovalForAll"
+  | "supportsInterface"
+  | "symbol"
+  | "tokenURI"
+  | "transferFrom"
+  | "transferOwnership"
+  | "setListingPrice"
+  | "getNftItem"
+  | "listedItemsCount"
+  | "tokenURIExists"
+  | "totalSupply"
+  | "tokenByIndex"
+  | "tokenOfOwnerByIndex"
+  | "getAllNftsOnSale"
+  | "getOwnedNfts"
+  | "mintToken"
+  | "buyNft"
+  | "placeNftOnSale";
 export interface ApprovalEventEmittedResponse {
   owner: string;
   approved: string;
@@ -140,7 +140,7 @@ export interface NftMarketContract {
    * StateMutability: nonpayable
    * Type: constructor
    */
-  'new'(overrides?: ContractTransactionOverrides): Promise<ContractTransaction>;
+  "new"(overrides?: ContractTransactionOverrides): Promise<ContractTransaction>;
   /**
    * Payable: false
    * Constant: false
