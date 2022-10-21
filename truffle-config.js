@@ -10,13 +10,13 @@ module.exports = {
      port: 7545,
      network_id: "*",
     },
-    ropsten: {
+    goerli: {
       provider: () => 
         new HDWalletProvider(
           keys.PRIVATE_KEY,
-          keys.INFURA_ROPSTEN_URL
+          keys.INFURA_GOERLI_URL
         ),
-      network_id: 3,
+      network_id: 5,
       gas: 5500000,
       gasPrice: 20000000000,
       confirmations: 2,

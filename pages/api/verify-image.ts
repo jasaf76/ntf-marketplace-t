@@ -6,6 +6,13 @@ import { addressCheckMiddleware, pinataApiKey, pinataSecretApiKey, withSession }
 import FormData from "form-data";
 import axios from "axios";
 
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: "50mb",
+    },
+  },
+};
 export default withSession(async (
   req: NextApiRequest & {session: Session}, 
   res: NextApiResponse
@@ -20,7 +27,7 @@ export default withSession(async (
     if (!bytes || !fileName || !contentType) {
       return res.status(422).send({message: "Image data are missing"});
     }
-
+   
     await addressCheckMiddleware(req, res);
 
     const buffer = Buffer.from(Object.values(bytes));
